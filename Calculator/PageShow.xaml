@@ -1,0 +1,27 @@
+﻿<Window x:Class="Calculator.PageShow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Show Database" Height="450" Width="650">
+    <Window.Background>
+        <ImageBrush ImageSource="E:/Yuniati/NCU/Summer Course/Homework Fix/Calculator/Calculator/bg.JPG"/>
+    </Window.Background>
+    <Grid>
+        <DataGrid x:Name="result_table" HorizontalAlignment="Left" Height="320" Margin="23,60,0,0" VerticalAlignment="Top" Width="491" FrozenColumnCount="6" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=id}" ClipboardContentBinding="{x:Null}" Header="ID" FontSize="20"/>
+                <DataGridTextColumn Binding="{Binding Path=Ekspresi}" ClipboardContentBinding="{x:Null}" Header="Expression" FontSize="20"/>
+                <DataGridTextColumn Binding="{Binding Path=Preorder}" ClipboardContentBinding="{x:Null}" Header="PreOrder" FontSize="20"/>
+                <DataGridTextColumn Binding="{Binding Path=Postorder}" ClipboardContentBinding="{x:Null}" Header="PostOrder" FontSize="20"/>
+                <DataGridTextColumn Binding="{Binding Path=Desimal}" ClipboardContentBinding="{x:Null}" Header="Decimal" FontSize="20"/>
+                <DataGridTextColumn Binding="{Binding Path=Binari}" ClipboardContentBinding="{x:Null}" Header="Binary" FontSize="20"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="hapus" Content="DELETE" HorizontalAlignment="Left" Margin="533,63,0,0" VerticalAlignment="Top" Width="83" Height="72" FontSize="22" FontFamily="Hobo Std" Background="#FF84D1D8" Click="hapus_Click"/>
+        <Button x:Name="balik" Content="BACK" HorizontalAlignment="Left" Margin="533,165,0,0" VerticalAlignment="Top" Width="83" Height="72" FontSize="22" FontFamily="Hobo Std" Background="#FF84D1D8" Click="balik_Click"/>
+    </Grid>
+
+</Window>
