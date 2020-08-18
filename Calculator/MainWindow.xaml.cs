@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
-
+using System.Data;
 namespace Calculator
 {
     /// <summary>
@@ -56,7 +55,6 @@ namespace Calculator
             postor.IsEnabled = false;
             dec.IsEnabled = false;
             bina.IsEnabled = false;
-            samadengan.IsEnabled = false;
             layar1.Text = "";
             preor.Text = "";
             postor.Text = "";
@@ -67,7 +65,6 @@ namespace Calculator
         //fungsi tombol on
         public void enable()
         {
-            samadengan.IsEnabled = true;
             layar1.IsEnabled = true;
             mati.Visibility = Visibility.Visible;
             nyala.Visibility = Visibility.Hidden;
@@ -108,21 +105,34 @@ namespace Calculator
         //angka clicked
         private void angka_Click (object sender, RoutedEventArgs e)
         {
+            if (press == true)
+            {
+                preor.Text = "";
+                postor.Text = "";
+                dec.Text = "";
+                bina.Text = "";
+            }
             Button button = (Button)sender;
-            if (layar1.Text == "0")
-                layar1.Clear();
-            layar1.Text = layar1.Text + button.Content;
-            
+            layar1.Text += button.Content;
         }
 
+        //nol clicked
+        //nol clicked
+        private void nol_Click(object sender, RoutedEventArgs e)
+        {
+            if (layar1.Text.Length >= 1)
+            {
+                Button b = (Button)sender;
+                layar1.Text += b.Content;
+            }
+        }
         //operator clicked
         private void operator_Click(object sender, RoutedEventArgs e)
         {
             if (layar1.Text.Length > 0)
             {
-                Button button = (Button)sender;
-                layar1.Text = layar1.Text + button.Content;
-                
+                Button b = (Button)sender;
+                layar1.Text += " " + b.Content + " ";
             }
         }
 
@@ -140,21 +150,13 @@ namespace Calculator
         //backspace button
         private void del_Click(object sender, RoutedEventArgs e)
         {
+            layar1.Text = layar1.Text.Substring(0, layar1.Text.Length - 1);
             preor.Text = "";
             postor.Text = "";
             dec.Text = "";
             bina.Text = "";
-            if (layar1.Text.Length > 0)
-            {
-                if (layar1.Text != "0")
-                {
-                    layar1.Undo();
-                    if (layar1.Text.Length == 0)
-                        layar1.Text = "0";
-                }
-            }
         }
-            
+
         private void masukdb_Click(object sender, RoutedEventArgs e)
         {
             //membuat koneksi mysql
@@ -175,7 +177,6 @@ namespace Calculator
                     "('" + layar1.Text.ToString() + "','" + postor.Text.ToString() +
                     "','" + preor.Text.ToString() + "','" + dec.Text.ToString() +
                     "','" + bina.Text.ToString() + "');";
-
                     cmd = new MySqlCommand(sql_insert, koneksi);
                     myData = cmd.ExecuteReader();
                     MessageBox.Show("Insert Expression Success!");
@@ -185,6 +186,7 @@ namespace Calculator
                     MessageBox.Show("Upppss!! There is another expression!");
                     myData.Close();
                 }
+                
                 myData.Close();
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -201,7 +203,7 @@ namespace Calculator
             w_data.Show();
         }
 
-        private void samadengan_Click(object sender, RoutedEventArgs e)
+        private void enter_Click(object sender, RoutedEventArgs e)
         {
             press = true;
 
@@ -209,7 +211,14 @@ namespace Calculator
             Stack<string> check = new Stack<string>();
 
             int len = words.Length - 1;
-
+            if (preor.Text.Length > 0)
+            {
+                preor.Text = "";
+            }
+            if (postor.Text.Length > 0)
+            {
+                postor.Text = "";
+            }
             while (len >= 0)
             {
                 if (words[len] != "+" && words[len] != "-" && words[len] != "*" && words[len] != "/")
@@ -313,5 +322,7 @@ namespace Calculator
 
             bina.Text = Convert.ToString(int.Parse(dec.Text), 2);
         }
-    }    
+
+    }
+    
 }

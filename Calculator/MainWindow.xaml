@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Calculator with Database" Height="450" Width="650">
     <Window.Background>
-        <ImageBrush ImageSource="E:/Yuniati/NCU/Summer Course/Homework Fix/Calculator/Calculator/bg.JPG"/>
+        <ImageBrush ImageSource="E:/Yuniati/NCU/Summer Course/4 Agustus/Calculator with Database MySQL/images/bg.JPG"/>
     </Window.Background>
     <Grid>
         <TextBox x:Name="layar1" HorizontalAlignment="Left" Height="71" Margin="40,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="24" FontFamily="Hobo Std" FontWeight="Bold" TextAlignment="Right" Background="White"/>
@@ -20,15 +20,11 @@
         <Button x:Name="sembilan" Content="9" HorizontalAlignment="Left" Margin="180,134,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="angka_Click"/>
         <Button x:Name="enam" Content="6" HorizontalAlignment="Left" Margin="180,204,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="angka_Click"/>
         <Button x:Name="tiga" Content="3" HorizontalAlignment="Left" Margin="180,274,0,0" VerticalAlignment="Top" Width="51" Height="53" RenderTransformOrigin="0.686,2.604" FontSize="14" Background="#FF84D1D8" Click="angka_Click"/>
-        <Button x:Name="nyala" Content="ON" HorizontalAlignment="Left" Margin="320,134,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" FontWeight="Bold" Click="nyala_Click"/>
-        <Button x:Name="alldel" Content="AC" HorizontalAlignment="Left" Margin="320,274,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="alldel_Click" RenderTransformOrigin="0.549,0.094"/>
-        <Button x:Name="nol" Content="0" HorizontalAlignment="Left" Margin="40,344,0,0" VerticalAlignment="Top" Width="191" Height="53" RenderTransformOrigin="0.686,2.604" FontSize="14" Background="#FF84D1D8" Click="angka_Click"/>
+        <Button x:Name="nol" Content="0" HorizontalAlignment="Left" Margin="40,344,0,0" VerticalAlignment="Top" Width="191" Height="53" RenderTransformOrigin="0.686,2.604" FontSize="14" Background="#FF84D1D8" Click="nol_Click"/>
         <Button x:Name="tambah" Content="+" HorizontalAlignment="Left" Margin="250,134,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="operator_Click"/>
         <Button x:Name="kurang" Content="-" HorizontalAlignment="Left" Margin="250,204,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="operator_Click"/>
         <Button x:Name="kali" Content="*" HorizontalAlignment="Left" Margin="250,274,0,0" VerticalAlignment="Top" Width="51" Height="53" RenderTransformOrigin="0.686,2.604" FontSize="14" Background="#FF84D1D8" Click="operator_Click"/>
         <Button x:Name="bagi" Content="/" HorizontalAlignment="Left" Margin="250,344,0,0" VerticalAlignment="Top" Width="51" Height="53" RenderTransformOrigin="0.686,2.604" FontSize="14" Background="#FF84D1D8" Click="operator_Click"/>
-        <Button x:Name="masukdb" Content="INSERT" HorizontalAlignment="Left" Margin="379,41,0,0" VerticalAlignment="Top" Width="100" Height="53" FontSize="22" Background="#FF84D1D8" Click="masukdb_Click" FontFamily="Hobo Std"/>
-        <Button x:Name="liatdb" Content="SHOW" HorizontalAlignment="Left" Margin="506,41,0,0" VerticalAlignment="Top" Width="100" Height="53" FontSize="22" Background="#FF84D1D8" Click="liatdb_Click" FontFamily="Hobo Std"/>
         <Label Content="Preorder:" HorizontalAlignment="Left" Height="40" Margin="379,142,0,237" VerticalAlignment="Center" Width="90" RenderTransformOrigin="-0.196,0.542" FontSize="14"/>
         <TextBox x:Name="preor" HorizontalAlignment="Left" Height="40" Margin="456,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14"/>
         <Label Content="Postorder:" HorizontalAlignment="Left" Height="40" Margin="379,208,0,171" VerticalAlignment="Center" Width="90" RenderTransformOrigin="-0.196,0.542" FontSize="14"/>
@@ -37,8 +33,12 @@
         <TextBox x:Name="dec" HorizontalAlignment="Left" Height="40" Margin="456,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14"/>
         <Label Content="Binary:" HorizontalAlignment="Left" Height="40" Margin="379,348,0,31" VerticalAlignment="Center" Width="90" RenderTransformOrigin="-0.196,0.542" FontSize="14"/>
         <TextBox x:Name="bina" HorizontalAlignment="Left" Height="40" Margin="456,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14"/>
-        <Button x:Name="del" Content="C" HorizontalAlignment="Left" Margin="320,208,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="del_Click"/>
+        <Button x:Name="alldel" Content="AC" HorizontalAlignment="Left" Margin="320,274,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="alldel_Click" RenderTransformOrigin="0.549,0.094"/>
+        <Button x:Name="del" Content="C" HorizontalAlignment="Left" Margin="320,204,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" Click="del_Click"/>
+        <Button x:Name="samadengan" Content="=" HorizontalAlignment="Left" Margin="320,344,0,0" VerticalAlignment="Top" Width="51" Height="53" Background="#FF84D1D8" FontSize="14" Click="enter_Click"/>
+        <Button x:Name="nyala" Content="ON" HorizontalAlignment="Left" Margin="320,134,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FF84D1D8" FontWeight="Bold" Click="nyala_Click"/>
         <Button x:Name="mati" Content="OFF" HorizontalAlignment="Left" Margin="320,134,0,0" VerticalAlignment="Top" Width="51" Height="53" FontSize="14" Background="#FFFF0E0E" FontWeight="Bold" Click="mati_Click"/>
-        <Button x:Name="samadengan" Content="=" HorizontalAlignment="Left" Margin="320,344,0,0" VerticalAlignment="Top" Width="51" Height="53" Background="#FF84D1D8" FontSize="14" Click="samadengan_Click"/>
+        <Button x:Name="masukdb" Content="INSERT" HorizontalAlignment="Left" Margin="379,41,0,0" VerticalAlignment="Top" Width="100" Height="53" FontSize="22" Background="#FF84D1D8" Click="masukdb_Click" FontFamily="Hobo Std"/>
+        <Button x:Name="liatdb" Content="SHOW" HorizontalAlignment="Left" Margin="506,41,0,0" VerticalAlignment="Top" Width="100" Height="53" FontSize="22" Background="#FF84D1D8" Click="liatdb_Click" FontFamily="Hobo Std"/>
     </Grid>
 </Window>

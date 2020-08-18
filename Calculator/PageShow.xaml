@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Show Database" Height="450" Width="650">
     <Window.Background>
-        <ImageBrush ImageSource="E:/Yuniati/NCU/Summer Course/Homework Fix/Calculator/Calculator/bg.JPG"/>
+        <ImageBrush ImageSource="E:/Yuniati/NCU/Summer Course/4 Agustus/Calculator with Database MySQL/images/bg.JPG"/>
     </Window.Background>
     <Grid>
         <DataGrid x:Name="result_table" HorizontalAlignment="Left" Height="320" Margin="23,60,0,0" VerticalAlignment="Top" Width="491" FrozenColumnCount="6" IsReadOnly="True">

@@ -77,7 +77,7 @@ namespace Calculator
             string id = (result_table.SelectedCells[0].Column.GetCellContent(selectedItem) as TextBlock).Text;
             if (selectedItem != null)
             {
-                MySqlConnection koneksi = new MySqlConnection("server=localhost;port=3306;database=kalkulatorutami;uid=root;password=;SslMode=none");
+                MySqlConnection koneksi = new MySqlConnection("server=localhost;port=3306;database=kalkulatorutami;uid=root;password=Nyuna;SslMode=none");
                 koneksi.Open();
                 String sql_del = "Delete from kalkulator where id=" + id;
                 try
